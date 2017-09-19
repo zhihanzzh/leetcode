@@ -7,6 +7,8 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+//postorder traversal solution
 class Solution {
     public TreeNode trimBST(TreeNode root, int L, int R) {
         if (root == null) {
@@ -24,7 +26,6 @@ class Solution {
             return right;
         } else {
             return left;
-        }
-        
+        } 
     }
 }
