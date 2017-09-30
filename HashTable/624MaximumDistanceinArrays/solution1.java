@@ -1,3 +1,4 @@
+//the usage of distMin & distMax
 class Solution {
     public int maxDistance(List<List<Integer>> arrays) {
         int max = arrays.get(0).get(arrays.get(0).size() - 1);       
