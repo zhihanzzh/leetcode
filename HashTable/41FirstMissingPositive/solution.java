@@ -7,7 +7,11 @@ class Solution {
             else i++;
         }
         i = 0;
-        while(i < nums.length && nums[i] == i+1) i++;
+
+        while(i < nums.length && nums[i] == i+1){
+		 i++;
+	}
+
         return i+1;
         
     }
