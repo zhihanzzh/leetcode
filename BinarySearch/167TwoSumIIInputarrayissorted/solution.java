@@ -1,7 +1,9 @@
 class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int[] indice = new int[2];
-        if (numbers == null || numbers.length < 2) return indice;
+        if (numbers == null || numbers.length < 2) {
+		return indice;
+	}
         int left = 0, right = numbers.length - 1;
         while (left < right) {
             int v = numbers[left] + numbers[right];
@@ -18,3 +20,4 @@ class Solution {
         return indice;
     }
 }
+
