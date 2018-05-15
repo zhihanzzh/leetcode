@@ -10,9 +10,9 @@ class Solution {
             double num1 = 0;
             double num2 = 0;
             if (n == 0) {
-                return ((double)nums2[t - 1] + (double)nums2[t]) / 2;
+                return (nums2[t - 1] + nums2[t]) / 2.0;
             } else if (m == 0) {
-                return ((double)nums1[t - 1] + (double)nums1[t]) / 2;
+                return (nums1[t - 1] + nums1[t]) / 2.0;
             }            
             while (c <= t && i < nums1.length && j <nums2.length) {
                 if (nums1[i] <= nums2[j]) {
