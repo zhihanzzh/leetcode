@@ -1,3 +1,5 @@
+//DP : Time Limit Exceeded;
+
 class Solution {
     public boolean canJump(int[] nums) {
         boolean[] res = new boolean[nums.length];
