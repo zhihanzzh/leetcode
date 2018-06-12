@@ -27,9 +27,7 @@ class Solution {
         
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                if(obstacleGrid[i][j] == 1) {
-                    res[i][j] = 0;
-                } else {
+                if(obstacleGrid[i][j] == 0) {
                     res[i][j] = res[i - 1][j] + res[i][j - 1];
                 }
             }
