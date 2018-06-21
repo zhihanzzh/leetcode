@@ -27,7 +27,7 @@ class Solution {
         int[] cut = new int[s.length() + 1];
         
         cut[0] = 0;
-        for (int i = 1; i < s.length(); i++) {
+        for (int i = 1; i <= s.length(); i++) {
             cut[i] = Integer.MAX_VALUE;
             for (int j = 1; j <= i; j++) {
                 if (isPalindrome[i - j][i - 1] && cut[i- j] != Integer.MAX_VALUE) {
@@ -35,7 +35,10 @@ class Solution {
                 }
             }
         }
-        
+
+        for (int i = 0; i < cut.length; i++) {
+            System.out.println(cut[i]);
+        }
         return cut[s.length()] - 1;
     }
 }
