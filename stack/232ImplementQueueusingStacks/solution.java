@@ -1,4 +1,4 @@
-class MyQueue {
+ class MyQueue {
     Stack<Integer> stack1;
     Stack<Integer> stack2;
     /** Initialize your data structure here. */
