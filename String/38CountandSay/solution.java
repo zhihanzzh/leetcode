@@ -1,27 +1,29 @@
 class Solution {
     public String countAndSay(int n) {
-        String pattern = "1";
-        int nums =  1;
-        char cur = '1';
+        
+        int count;
+        char say;
+        
+        String cur = "1";
+        
         for (int i = 1; i < n; i++) {
-            StringBuilder tmp = new StringBuilder();
-            cur = pattern.charAt(0);
-            for (int j = 1; j < pattern.length(); j++) {
-                if (pattern.charAt(j) == cur) {
-                    nums++;
+            StringBuilder sb = new StringBuilder();
+            say = cur.charAt(0);
+            count = 1;
+            
+            for (int j = 1; j < cur.length(); j++) {
+                if (cur.charAt(j) != say) {
+                    sb.append(count).append(say);
+                    say = cur.charAt(j);
+                    count = 1;
                 } else {
-                    tmp.append(nums);
-                    tmp.append(cur);
-                    cur = pattern.charAt(j);
-                    nums = 1;
+                    count++;
                 }
             }
-            tmp.append(nums);
-            tmp.append(cur);
-            pattern = tmp.toString();
-            nums =  1;
+            sb.append(count).append(say);
+            cur = sb.toString();
         }
         
-        return pattern;
+        return cur;
     }
 }
