@@ -1,5 +1,6 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
+<<<<<<< HEAD
         int[] res = new int[2];
         if (nums == null || nums.length == 0) {
             return res;
@@ -38,3 +39,16 @@ class Solution {
         return res;
     }
 }
+=======
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[]{i, j};
+                }
+            }
+        }
+
+        throw new IllegalArgumentException("No two sum solution");
+    }
+}
+>>>>>>> 25254d6b892ae6da8c88af37c4d10e34fd68356f
