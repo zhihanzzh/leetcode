@@ -1,34 +1,52 @@
 class Solution {
     public String longestPalindrome(String s) {
-        boolean[][] res = new boolean[s.length()][s.length()];
-        
-        
-        int maxS = 0;
-        int maxL = 1;
-        for (int i = 0; i < s.length(); i++) {
-            res[i][i] = true;
+        if (s == null || s.length() < 2) {
+            return s;
         }
         
-        for (int i = 1; i < s.length(); i++) {
-            if (s.charAt(i) == s.charAt(i - 1)) {
-                res[i-1][i] = true;
-                maxS = i - 1;
-                maxL = i + 1;
+        boolean[][] isPalindrome = new boolean[s.length()][s.length()];
+        
+        int l = 0;
+        int r = 0;
+        
+//         for (int j = 1; j < s.length(); j++) {
+//             for (int i = 0; i < j; i++) {
+//                 if (s.charAt(i) == s.charAt(j) && (j - i < 3 || isPalindrome[i + 1][j - 1])) {
+//                     isPalindrome[i][j] = true;
+                    
+//                     if (j - i > r - l) {
+//                         l = i;
+//                         r = j;
+//                     }
+//                 }
+//             }
+//         }
+        
+        
+//         return s.substring(l, r + 1);
+        
+        for (int i = 0; i < s.length(); i++) {
+            isPalindrome[i][i] = true;
+        }
+        
+        for (int i = 0; i < s.length() - 1; i++) {
+            if (s.charAt(i) == s.charAt(i + 1)) {
+                isPalindrome[i][i + 1] = true;
+                l = i;
+                r = i + 1;
             }
         }
         
-        int gap = 1;
-        while (gap <= s.length() - 1) {
-            for (int i = 0; i < s.length() - gap - 1; i++) {
-                if (s.charAt(i) == s.charAt(i + gap + 1) && res[i + 1][i + gap]) {
-                    res[i][i + gap + 1] = true;
-                    maxS = i;
-                    maxL = i + gap + 2;
+        for (int length = 3; length <= s.length(); length++) {
+            for (int i = 0; i + length - 1 < s.length(); i++) {
+                if (s.charAt(i) == s.charAt(i + length - 1) && isPalindrome[i + 1][i + length - 2]) {
+                    isPalindrome[i][i + length - 1] = true;
+                    l = i;
+                    r = i + length - 1;
                 }
             }
-            gap++;
         }
         
-        return s.substring(maxS, maxL);
+        return s.substring(l, r + 1);
     }
 }
